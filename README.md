@@ -1,3 +1,3 @@
 # dicarbene.github.io
 alielie
-blog : https://dicarbene.github.io/solutions/
+solutions : https://dicarbene.github.io/solutions/
