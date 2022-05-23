@@ -53,7 +53,7 @@ module.exports = {
     personalInfo: {
       name: "Dicarbene",
       avatar: "/img/avatar.jpg",
-      description: "A single octupus lies on concrete land.",
+      description: "The single octupus lies on concrete land.",
       sns: {
         github: "Renovamen",
         email: "michaelnatvollhardt@gmail.com",
@@ -70,10 +70,6 @@ module.exports = {
       },
       {
         path: "/img/home-bg/3.png",
-      },
-      {
-        path: "/img/home-bg/4.jpg",
-        mask: "rgba(40, 57, 101, .4)",
       },
     ],
 
