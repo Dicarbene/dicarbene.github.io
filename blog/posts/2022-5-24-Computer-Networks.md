@@ -1,7 +1,7 @@
 ---
 layout: Post
 title: 计算机网络复习
-subtitle: 大纲总结
+subtitle: for pratical usage
 author: dicarbene
 date: 2022-05-23
 useHeaderImage: true

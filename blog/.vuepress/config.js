@@ -97,20 +97,14 @@ module.exports = {
       git: isProd,
       katex: true,
       giscus: {
-        repo: "This-is-an-Apple/blog-giscus-comments",
-        repoId: "R_kgDOGl2SjQ",
-        category: "Announcements",
-        categoryId: "DIC_kwDOGl2Sjc4CAcxK",
+        repo: "Dicarbene/dicarbene.github.io",
+        repoId: "MDEwOlJlcG9zaXRvcnkzNTQ1OTQ2MjQ=",
+        category: "General",
+        categoryId: "DIC_kwDOFSKvQM4CPe-8",
         darkTheme: "https://blog.zxh.io/styles/giscus-dark.css",
       },
       mdPlus: {
         all: true,
-      },
-      ga: "G-HCQSX53XFG",
-      ba: "75381d210789d3eaf855fa16246860cc",
-      rss: {
-        siteURL: " ",
-        copyright: " ",
       },
     },
 
