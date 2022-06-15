@@ -28,13 +28,11 @@ FTP 是 File Transfer Protocol 的简称，即文件传输协议的缩写。该�
 
 FTP 中，控制连接的各种指令均由客户端主动发起，而数据连接有两种工作方式：主动方式（PORT 方式）和被动方式（PASV 方式）。主动方式下，FTP 客户端首先和 FTP 服务器的控制通道对应端口（一般为 21）建立连接，通过控制通道发送命令，客户端需要接收数据的时候在这个通道上发送 PORT 命令。PORT 命令包含了客户端用什么端口（一个大于 1024 的端口）接收数据。在传输数据的时候，FTP 服务器必须和客户端建立一个新的连接。被动方式下，建立控制通道的过程和主动方式类似，当客户端通过这个通道发送 PASV 命令的时候，FTP Server 打开一个位于 1024 ～ 5000 之间的随机端口并且通知客户端，然后客户端与服务器之间将通过这个端口进行数据的传送。
 
-具体的 FTP 规范请参考 RFC959。
-
-**为方便起见, 本实验参考了[译文](https://github.com/comehope/rfc-translation/blob/master/rfc-959-cn.pdf)。**
+具体的 FTP 规范请参考 RFC959。 **为方便起见, 本实验参考了[译文](https://github.com/comehope/rfc-translation/blob/master/rfc-959-cn.pdf)。**
 
 ### 实验内容
 
-本实验要求学生在 Linux 系统上使用 C/C++编程语言利用 Socket 接口实现 FTP 客户端和服务器的程序，使客户端可以连接至服务器，并且可以进行一些 FTP 的基本操作，如列出目录、下载文件等。从 FTP 的实现角度来看，客户端与服务器的命令通道和数据通道需要分离，同时应该支持包括但不限于以下一些 FTP 命令：
+本实验要求学生在 Linux 系统上使用 C/C++ 编程语言利用 Socket 接口实现 FTP 客户端和服务器的程序，使客户端可以连接至服务器，并且可以进行一些 FTP 的基本操作，如列出目录、下载文件等。从 FTP 的实现角度来看，客户端与服务器的命令通道和数据通道需要分离，同时应该支持包括但不限于以下一些 FTP 命令：
 
 1. get：取远方的一个文件。
 2. put：传给远方一个文件。
@@ -54,9 +52,9 @@ FTP 中，控制连接的各种指令均由客户端主动发起，而数据连�
 
 2. 主动方式和被动方式的主要区别是什么？为何要设计这两种方式？
 
-   **主动方式: 客户端主动向服务端建立连接**
+   **主动方式: 客户端主动选择连接端口向服务端建立连接**
 
-   **被动方式: 客户端被动向服务端建立连接**
+   **被动方式: 客户端向服务端请求建立连接，服务端分配连接端口**
 
 3. 当使用 FTP 下载大量小文件的时候，速度会很慢，这是什么缘故？可以怎样改进？
 
@@ -66,12 +64,13 @@ FTP 中，控制连接的各种指令均由客户端主动发起，而数据连�
 
 ## 使用到的 RFC959 标准
 
-### 指令
 
+### 指令
+由 Client 输入指令，Server 端响应
 ```bash
 ls      pwd     cd      get     put
-user    dir     quit    exit    bye
-ftp     ?
+user    dir     exit    ftp     PASV
+?
 ```
 
 ### Server回应码 (按数字顺序排序)
@@ -117,4 +116,41 @@ ftp     ?
 551 请求操作终止。页类型未知。
 552 请求的文件操作终止。超出可分配的存储空间（对当前目录或数据集来说）。
 553 请求的操作没有执行。
+```
+
+## coding part
+
+### linux socket
+
+socket 结构图
+![linux socket](/img/in-post/2022-06-09/socket.png)
+
+code example
+
+```cpp
+socket()
+```
+
+### 项目结构
+
+```note
+📦FTP-master
+ ┣ 📂client
+ ┃ ┣ 📜client.cpp
+ ┃ ┣ 📜client.h
+ ┃ ┗ 📜main.cpp
+ ┣ 📂common
+ ┃ ┣ 📜const.h
+ ┃ ┣ 📜util.cpp
+ ┃ ┗ 📜util.h
+ ┣ 📂server
+ ┃ ┣ 📜handler.cpp
+ ┃ ┣ 📜handler.h
+ ┃ ┣ 📜main.cpp
+ ┃ ┣ 📜server.cpp
+ ┃ ┗ 📜server.h
+ ┣ 📜.gitignore
+ ┣ 📜Makefile
+ ┣ 📜README.md
+ ┗ 📜users.txt
 ```
