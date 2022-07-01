@@ -47,7 +47,7 @@ module.exports = {
     docsDir: "blog",
     docsBranch: "master",
 
-    hitokoto: "https://v1.hitokoto.cn?c=i", // enable hitokoto (一言) or not?
+    hitokoto: "https://v1.hitokoto.cn?c=i", // enable hitokoto (一言) 且为随机诗词
 
     // personal information
     personalInfo: {
@@ -55,7 +55,7 @@ module.exports = {
       avatar: "/img/avatar.jpg",
       description: "The single octupus lies on concrete land.",
       sns: {
-        github: "Renovamen",
+        github: "Dicarbene",
         email: "michaelnatvollhardt@gmail.com",
       },
     },
