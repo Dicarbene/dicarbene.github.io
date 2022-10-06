@@ -137,7 +137,7 @@ module.exports = {
     ],
 
     footer: `
-      &copy; <a href="https://github.com/Renovamen" target="_blank">Dicarbene</a> 2020-2022
+      &copy; <a href="https://github.com/Dicarbene" target="_blank">Dicarbene</a> 2020-2022
       <br>
       Powered by <a href="https://v2.vuepress.vuejs.org" target="_blank">VuePress</a> &
       <a href="https://github.com/Renovamen/vuepress-theme-gungnir" target="_blank">Gungnir</a>
