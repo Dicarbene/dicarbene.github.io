@@ -16,6 +16,25 @@ Frontend Interview Problems from the [Frontend interview handbook](https://www.f
 
 ## Interview Questions
 
+### JavaScript
+
+- deepClone
+
+```js
+function copy(aObject) {
+  if (!aObject) return aObject;
+  let bObject = Array.isArray(aObject) ? [] : {};
+  let value;
+  for (const key in aObject) {
+    // Prevent self-references to parent object
+    if (Object.is(aObject[key], aObject)) continue;
+    value = aObject[key];
+    bObject[key] = typeof value === "object" ? copy(value) : value;
+  }
+  return bObject;
+}
+```
+
 ### Google
 
 #### JavaScript
@@ -53,5 +72,17 @@ Frontend Interview Problems from the [Frontend interview handbook](https://www.f
   ```
 
 - How do you make a function that only calls input function f every 50 milliseconds?
+
+```js
+fuction interval(f){
+  setInterval(f,50);
+}
+```
+
 - How do you make a function that takes f and returns a function that calls f on a timeout?
+
+```js
+
+```
+
 - Given a timeline write the JavaScript to select all nodes within selection of timeline.

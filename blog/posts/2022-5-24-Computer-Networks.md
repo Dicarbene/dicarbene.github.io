@@ -1,7 +1,7 @@
 ---
 layout: Post
-title: 计算机网络复习
-subtitle: for pratical usage
+title: Computer networks recap
+subtitle: Computer networks recap for pratical usage
 author: dicarbene
 date: 2022-05-23
 useHeaderImage: true
